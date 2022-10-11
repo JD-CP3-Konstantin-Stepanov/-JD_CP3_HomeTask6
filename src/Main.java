@@ -1,5 +1,3 @@
-import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
 import java.util.LinkedList;
 import java.util.Deque;
@@ -7,7 +5,7 @@ import java.util.Objects;
 
 class Main {
 
-    public static @NotNull List<Person> generateClients() {
+    public static List<Person> generateClients() {
         Person person1 = new Person("Иван", "Петров", 1);
         Person person2 = new Person("Ольга", "Иванова", 8);
         Person person3 = new Person("Алексей", "Приходько", -3);
