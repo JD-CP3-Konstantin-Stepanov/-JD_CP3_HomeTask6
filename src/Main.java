@@ -1,7 +1,6 @@
 import java.util.List;
 import java.util.LinkedList;
 import java.util.Deque;
-import java.util.Objects;
 
 class Main {
 
@@ -33,21 +32,12 @@ class Main {
         }
 
         while (!queue.isEmpty()) {
-            if (queue.peekFirst().getTicketAmount() > 0) {
-                assert queue.peekFirst() != null;
-                queue.peekFirst().decreaseTicketAmount();
-                assert queue.peekFirst() != null;
-                System.out.println(queue.peekFirst().getName() +
+            Person person = queue.pollFirst();
+            if (person.getTicketAmount() > 0) {
+                person.decreaseTicketAmount();
+                System.out.println(person.getName() +
                         " покатался на аттракционе");
-            }
-
-            assert queue.peekFirst() != null;
-            if (queue.peekFirst().getTicketAmount() == 0
-                    || Objects.requireNonNull(queue.peekFirst()).getTicketAmount() < 0) {
-                queue.pollFirst();
-            } else {
-                queue.offerLast(queue.peekFirst());
-                queue.pollFirst();
+                queue.offerLast(person);
             }
         }
     }
